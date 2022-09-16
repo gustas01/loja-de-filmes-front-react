@@ -1,0 +1,54 @@
+.header{
+  background-color: var(--header-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-color);
+  padding: 5px 3% 5px 3%;
+}
+
+.header a:visited{
+  color: var(--primary-color);
+}
+
+.searchInput{
+  outline: none;
+  height: 35px;
+  width: 100%;
+  font-size: 1.2em;
+  border: none;
+  padding-left: 10px;
+}
+
+
+.FlexClose{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0.4;
+  background-color: white;
+  border: 2px solid #97bec3;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.FlexDistant{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0.08;
+}
+
+.icons{
+  cursor: pointer;
+  transition-duration: 1s;
+}
+
+.icons:hover{
+  color: var(--ternary-color);
+}
+
+.notificationBadge{
+  cursor: pointer;
+  font-size: 0.5px;
+}

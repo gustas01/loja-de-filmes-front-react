@@ -1,0 +1,107 @@
+.sideNavFavoritesContainer{
+  width: 30%;
+  padding: 2% 15px 0 15px;
+  background-color: var(--primary-color);
+  opacity: 0.95;
+  position: absolute;
+  right: -35%;
+  transition-duration: 1s;
+  border-radius: 10px;
+  height: 100vh;
+  color: var(--secondary-color);
+}
+
+.showHideFavorites{
+  right: 0;
+  transition-duration: 1s;
+}
+
+
+.favoritesItemsList{
+  margin-top: 10%;
+  overflow: auto;
+  height: 100vh;
+}
+
+.sideNavFavoritesTitles, .favoritesItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favoritesItem{
+  width: 100%;
+  height: 3em;
+  overflow: hidden;
+  margin: 5px 0;
+  white-space: nowrap;
+}
+
+.favoritesItem:hover{
+  background-color: var(--ternary-color);
+}
+
+.favoritesItem img{
+  height: 100%;
+  width: 35px;
+}
+
+.favoritesMovieName{
+  overflow: hidden;
+  width: 50%;
+}
+
+.clearFavorites, .trashIcon, .addToCartIcon{
+  cursor: pointer;
+}
+
+
+.totalValueFavorites{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalValueFavorites p:nth-child(2){
+  font-size: x-large;
+  font-weight: bold;
+}
+
+
+
+@media (max-width: 920px){
+  .sideNavFavoritesContainer{
+    width: 40%;
+    right: -40%;
+  }
+
+  .showHideFavorites{
+    right: 0;
+    transition-duration: 1s;
+  }
+}
+
+
+@media (max-width: 720px){
+  .sideNavFavoritesContainer{
+    width: 50%;
+    right: -50%;
+  }
+
+  .showHideFavorites{
+    right: 0;
+    transition-duration: 1s;
+  }
+}
+
+@media (max-width: 500px){
+  .sideNavFavoritesContainer{
+    width: 100%;
+    right: -100%;
+  }
+
+  .showHideFavorites{
+    right: 0;
+    transition-duration: 1s;
+  }
+}

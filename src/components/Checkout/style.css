@@ -1,0 +1,99 @@
+.checkoutContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10%;
+  min-height: 100vh;
+  padding: 0 5% 0 5%;
+  align-items: baseline;
+  height: fit-content;
+  width: fit-content;
+  /* padding-top: 6%; */
+}
+
+.formData{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  gap: 3%;
+  padding-top: 10%;
+  color: var(--secondary-color);
+}
+
+.formData input{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  font-size: 1.1em;
+  border: 2px solid gray;
+}
+
+.checkoutList{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  min-width: fit-content;
+  max-width: 100%;
+  color: var(--secondary-color);
+}
+
+.checkoutList ul{
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 8px;
+}
+
+.cartItemCheckout{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.totalValueCartCheckout{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalValueCartCheckout p:nth-child(2){
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.finishPurchaseButtonCheckout{
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 10px 0;
+  background-color: #6558f5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.finishPurchaseButtonCheckout:hover{
+  background-color: #7064f1;
+}
+
+.finishPurchaseButtonCheckout:disabled{
+  background-color: gray;
+}
+
+.cartMovieNameCheckout{
+  overflow: hidden;
+  width: 50%;
+  white-space: nowrap;
+}
+
+.cartHidden{
+  visibility: hidden;
+}

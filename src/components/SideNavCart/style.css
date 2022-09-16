@@ -1,0 +1,139 @@
+.sideNavCartContainer{
+  width: 30%;
+  padding: 2% 15px 0 15px;
+  background-color: var(--primary-color);
+  opacity: 0.95;
+  position: absolute;
+  right: -30%;
+  transition-duration: 1s;
+  border-radius: 10px;
+  color: var(--secondary-color);
+  /* display: none; */
+}
+
+.showHideCart{
+  /* display: block; */
+  right: 0;
+  transition-duration: 1s;
+}
+
+
+.cartItemsList{
+  margin-top: 10%;
+  overflow: auto;
+  height: 100vh;
+}
+
+.sideNavCartTitles, .cartItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartItem{
+  width: 100%;
+  height: 3em;
+  overflow: hidden;
+  margin: 5px 0;
+  white-space: nowrap;
+}
+
+.cartItem:hover{
+  background-color: var(--ternary-color);
+}
+
+.cartItem img{
+  height: 100%;
+  width: 35px;
+}
+
+.cartMovieName{
+  overflow: hidden;
+  width: 50%;
+}
+
+.clearCart, .trashIcon{
+  cursor: pointer;
+}
+
+.totalValueCart{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalValueCart p:nth-child(2){
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.finishPurchaseButton{
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 10px 0;
+  background-color: #6558f5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.finishPurchaseButton a{
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 1em;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+}
+
+.finishPurchaseButton:hover{
+  background-color: #7064f1;
+}
+
+.finishPurchaseButton:disabled{
+  background-color: gray;
+}
+
+@media (max-width: 920px){
+  .sideNavCartContainer{
+    width: 40%;
+    right: -40%;
+  }
+
+  .showHideCart{
+    right: 0;
+    transition-duration: 1s;
+  }
+}
+
+
+@media (max-width: 720px){
+  .sideNavCartContainer{
+    width: 50%;
+    right: -50%;
+  }
+
+  .showHideCart{
+    right: 0;
+    transition-duration: 1s;
+  }
+}
+
+@media (max-width: 500px){
+  .sideNavCartContainer{
+    width: 100%;
+    right: -100%;
+  }
+
+  .showHideCart{
+    right: 0;
+    transition-duration: 1s;
+  }
+}

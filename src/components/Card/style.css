@@ -1,0 +1,71 @@
+.cardContainer, .cardImage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardContainer{
+  border: 1px solid gray;
+  color: var(--secondary-color);
+}
+
+.cardContainer:hover{
+   background-color: var(--ternary-color);
+}
+
+.cardImage{
+  color: white;
+  position: relative;
+}
+
+.cardImage .icon{
+  align-self: flex-end;
+  margin: 2% 7% 0 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.cardImage .icon:hover{
+  color: pink;
+}
+
+.cardImage img{
+  width: 100%;
+}
+
+.movieTitle{
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+
+.starsGenre{
+  display: flex;
+  gap: 7px;
+}
+
+
+
+.addButton{
+  background-color: #6558f5;
+  border: none;
+  width: 100%;
+  border-radius: 1px;
+  height: 2.5em;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.addButton:hover{
+  background-color: #7064f1;
+}
+
+.favorite{
+  color: red
+}

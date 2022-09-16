@@ -1,0 +1,18 @@
+.main{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: auto 0;
+  width: 100%;
+  height: fit-content;
+  padding: 3%;
+  gap: 15px;
+}
+
+.contentMain{
+  display: flex;
+}
+
+.contentContainer{
+  display: flex;
+  flex-direction: column;
+}
