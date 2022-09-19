@@ -5,7 +5,7 @@
   opacity: 0.95;
   position: absolute;
   right: -35%;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   border-radius: 10px;
   height: 100vh;
   color: var(--secondary-color);
@@ -13,7 +13,7 @@
 
 .showHideFavorites{
   right: 0;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 
@@ -77,7 +77,7 @@
 
   .showHideFavorites{
     right: 0;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
   }
 }
 
@@ -90,7 +90,7 @@
 
   .showHideFavorites{
     right: 0;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
   }
 }
 
@@ -102,6 +102,6 @@
 
   .showHideFavorites{
     right: 0;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
   }
 }

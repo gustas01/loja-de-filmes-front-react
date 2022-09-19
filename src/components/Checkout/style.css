@@ -71,7 +71,7 @@
   width: 100%;
   height: 40px;
   margin: 10px 0 10px 0;
-  background-color: #6558f5;
+  background-color: var(--header-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -81,7 +81,8 @@
 }
 
 .finishPurchaseButtonCheckout:hover{
-  background-color: #7064f1;
+  background-color: var(--button-hover-color);
+  /* transition-duration: 0.5s; */
 }
 
 .finishPurchaseButtonCheckout:disabled{

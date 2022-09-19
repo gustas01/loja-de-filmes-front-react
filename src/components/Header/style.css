@@ -41,7 +41,7 @@
 
 .icons{
   cursor: pointer;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .icons:hover{

@@ -77,8 +77,8 @@ const Header = () => {
         <input className="searchInput" placeholder='Pesquisa' onChange={(e) => handleGetMovieName(e)}/>
         <BiSearchAlt2 className="icons" size={30} color={'#333'} onClick={searchMovies}/>
       </div>
-      {darkModeStatus && <BsFillSunFill size={25} onClick={darkMode}/>}
-      {!darkModeStatus && <BsFillMoonFill size={25} onClick={darkMode}/>}
+      {darkModeStatus && <BsFillSunFill size={25} onClick={darkMode} className="icons"/>}
+      {!darkModeStatus && <BsFillMoonFill size={25} onClick={darkMode} className="icons"/>}
 
       <div className="FlexDistant">
         <div onClick={showHideFavorites} title="Favoritos">

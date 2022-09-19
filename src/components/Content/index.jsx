@@ -17,8 +17,9 @@ const Content = (props) => {
 
   const getMovies = useCallback(async () => {
     try{
-      const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}&language=pt-Br&page=${page}`
+      const url = `http://localhost:3001/${page}/`
       const trendingMovies = await fetch(url)
+      console.log(trendingMovies);
       setMovies(await trendingMovies.json())
     }catch(e){
       console.log(e);
@@ -28,7 +29,7 @@ const Content = (props) => {
 
   const getGenres = useCallback(async () => {
     try{
-      const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR`
+      const url = `http://localhost:3001/genres`
       const genresMovies = await fetch(url)
       setGenres(await genresMovies.json())
     }catch(e){
@@ -39,7 +40,7 @@ const Content = (props) => {
   async function searchMovies(){
     try{
       if(movieNameSearch){
-        const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=pt-BR&page=1&include_adult=false&query=${movieNameSearch}&page=${pageFromSearchedMovie}`
+        const url = `http://localhost:3001/${movieNameSearch}/${pageFromSearchedMovie}`
         const searchedMovies = await fetch(url)
         setMovies(await searchedMovies.json())
       }
