@@ -9,7 +9,7 @@
 
 .paginationContainer button{
   outline: none;
-  background-color: black;
+  background-color: var(--secondary-color);;
   border: none;
   color: white;
   font-size: 1em;
@@ -20,7 +20,7 @@
 }
 
 .paginationContainer button:hover{
-  background-color: rgb(58, 57, 57);
+  background-color: var(--button-hover-color);
 }
 
 .paginationContainer button:disabled{

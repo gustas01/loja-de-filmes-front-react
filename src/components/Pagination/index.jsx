@@ -19,6 +19,7 @@ const Pagination = (props) => {
 
 
 
+  if(props.isLoading)return <></>
   return(
     <>
       {props.total_pages === 1 ? '':

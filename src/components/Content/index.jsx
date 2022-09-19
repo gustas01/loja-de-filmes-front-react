@@ -6,6 +6,7 @@ import SideNavFavorites from "../SideNavFavorites";
 import Pagination from "../Pagination";
 import './style.css'
 import Context from "../Context/Context";
+import Loading from "../Loading";
 
 const Content = (props) => {
   const [movieNameSearch, ] = useContext(Context).movieNameSearch
@@ -13,14 +14,16 @@ const Content = (props) => {
   const [genres, setGenres] = useState({})
   const [page, setPage] = useState(1)
   const [pageFromSearchedMovie, setPageFromSearchedMovie] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
 
 
   const getMovies = useCallback(async () => {
     try{
+      setIsLoading(true)
       const url = `http://localhost:3001/${page}/`
       const trendingMovies = await fetch(url)
-      console.log(trendingMovies);
       setMovies(await trendingMovies.json())
+      setIsLoading(false)
     }catch(e){
       console.log(e);
     }
@@ -70,6 +73,7 @@ const Content = (props) => {
 
   return(
     <div className="contentContainer">
+      <Loading isLoading={isLoading}></Loading>
       <div className="contentMain">
         <main className="main">
           {movies.results?.map((movie, index) => {
@@ -82,9 +86,9 @@ const Content = (props) => {
         <SideNavFavorites/>
       </div>
         {movieNameSearch ?
-        <Pagination  page={pageFromSearchedMovie} setPage={setPageFromSearchedMovie} totalPages={movies.total_pages}/>
+        <Pagination isLoading={isLoading} page={pageFromSearchedMovie} setPage={setPageFromSearchedMovie} totalPages={movies.total_pages}/>
          :
-        <Pagination page={page} setPage={setPage} totalPages={movies.total_pages}/>
+        <Pagination isLoading={isLoading} page={page} setPage={setPage} totalPages={movies.total_pages}/>
          }
 
     </div>

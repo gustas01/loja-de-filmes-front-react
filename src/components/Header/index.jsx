@@ -12,7 +12,8 @@ const Header = () => {
   const [, setmovieNameSearch] = useContext(Context).movieNameSearch
   const [shoppingCart, ] = useContext(Context).shoppingCart
   const [favorites, ] = useContext(Context).favorites
-  const [darkModeStatus, setDarkModeStatus] = useContext(Context).darkMode
+  // const [darkModeStatus, setDarkModeStatus] = useContext(Context).darkMode
+  const [lightModeStatus, setLightModeStatus] = useState(false)
   const [cartLength, setCartLength] = useState(0)
   const [favoritesLength, setFavoritesLength] = useState(0)
 
@@ -27,8 +28,9 @@ const Header = () => {
   }
 
   function darkMode(){
-    document.body.classList.toggle('dark-mode')
-    setDarkModeStatus(!darkModeStatus)
+    document.body.classList.toggle('light-mode')
+    localStorage.setItem('light-mode', !lightModeStatus)
+    setLightModeStatus(!lightModeStatus)
   }
 
   function showHideCart(){
@@ -70,6 +72,15 @@ const Header = () => {
     updateFavopritesLenght()
   },[updateFavopritesLenght])
 
+  useEffect(() => {
+    if(localStorage.getItem('light-mode') === 'true'){
+      setLightModeStatus(localStorage.getItem('light-mode'))
+      document.body.classList.add('light-mode')
+
+    }
+  }, [])
+
+
     return(
     <header className="header">
       <a href="/"><BiCameraMovie className="icons" size={30}/></a>
@@ -77,8 +88,8 @@ const Header = () => {
         <input className="searchInput" placeholder='Pesquisa' onChange={(e) => handleGetMovieName(e)}/>
         <BiSearchAlt2 className="icons" size={30} color={'#333'} onClick={searchMovies}/>
       </div>
-      {darkModeStatus && <BsFillSunFill size={25} onClick={darkMode} className="icons"/>}
-      {!darkModeStatus && <BsFillMoonFill size={25} onClick={darkMode} className="icons"/>}
+      {!lightModeStatus && <BsFillSunFill size={25} onClick={darkMode} className="icons"/>}
+      {lightModeStatus && <BsFillMoonFill size={25} onClick={darkMode} className="icons"/>}
 
       <div className="FlexDistant">
         <div onClick={showHideFavorites} title="Favoritos">

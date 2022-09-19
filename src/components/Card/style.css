@@ -9,7 +9,7 @@
 
 .cardContainer{
   border: 1px solid gray;
-  color: var(--secondary-color);
+  color: var(--fonts-color);
 }
 
 .cardContainer:hover{
@@ -53,7 +53,7 @@
 
 
 .addButton{
-  background-color: var(--header-color);
+  background-color: var(--secondary-color);
   border: none;
   width: 100%;
   border-radius: 1px;

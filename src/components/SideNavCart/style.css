@@ -7,7 +7,7 @@
   right: -30%;
   transition-duration: 0.5s;
   border-radius: 10px;
-  color: var(--secondary-color);
+  color: var(--fonts-color);
   /* display: none; */
 }
 
@@ -71,7 +71,7 @@
   width: 100%;
   height: 40px;
   margin: 10px 0 10px 0;
-  background-color: var(--header-color);
+  background-color: var(---secondary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
