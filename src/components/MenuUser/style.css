@@ -1,5 +1,6 @@
 .userMenuButton{
   color: white !important;
+  text-transform: none !important;
 }
 
 .userMenuButton:hover{

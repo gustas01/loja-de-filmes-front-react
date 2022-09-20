@@ -94,6 +94,9 @@ const Header = () => {
       {lightModeStatus && <BsFillMoonFill size={25} onClick={darkMode} className="icons"/>}
 
       <div className="FlexDistant">
+        <div className="userMenuContainer">
+          {token ? <BasicMenu/> : <span className="user">ENTRAR</span>}
+        </div>
         <div onClick={showHideFavorites} title="Favoritos">
           <NotificationBadge count={favoritesLength} className="notificationBadge"/>
           <AiFillHeart className="icons" size={30}/>
@@ -101,9 +104,6 @@ const Header = () => {
         <div onClick={showHideCart} title="Carrinho">
           <NotificationBadge count={cartLength} className="notificationBadge"/>
           <MdShoppingCart className="icons" size={30} />
-        </div>
-        <div className="userMenuContainer">
-          {token ? <BasicMenu/> : <span className="user">Entrar</span>}
         </div>
       </div>
 
