@@ -8,14 +8,16 @@ import './style.css'
 import { useCallback, useContext, useEffect, useState } from "react";
 import Context from "../Context/Context";
 
+import BasicMenu from "../MenuUser";
+
 const Header = () => {
   const [, setmovieNameSearch] = useContext(Context).movieNameSearch
   const [shoppingCart, ] = useContext(Context).shoppingCart
   const [favorites, ] = useContext(Context).favorites
-  // const [darkModeStatus, setDarkModeStatus] = useContext(Context).darkMode
   const [lightModeStatus, setLightModeStatus] = useState(false)
   const [cartLength, setCartLength] = useState(0)
   const [favoritesLength, setFavoritesLength] = useState(0)
+  const [token] = useState('a')
 
   let inputText = ''
 
@@ -84,7 +86,7 @@ const Header = () => {
     return(
     <header className="header">
       <a href="/"><BiCameraMovie className="icons" size={30}/></a>
-      <div className="FlexClose">
+      <div className="inputAndSearchButton">
         <input className="searchInput" placeholder='Pesquisa' onChange={(e) => handleGetMovieName(e)}/>
         <BiSearchAlt2 className="icons" size={30} color={'#333'} onClick={searchMovies}/>
       </div>
@@ -100,7 +102,14 @@ const Header = () => {
           <NotificationBadge count={cartLength} className="notificationBadge"/>
           <MdShoppingCart className="icons" size={30} />
         </div>
+        <div className="userMenuContainer">
+          {token ? <BasicMenu/> : <span className="user">Entrar</span>}
+        </div>
       </div>
+
+      {/* <div className="hamburguer">
+
+      </div> */}
     </header>
     )
 }

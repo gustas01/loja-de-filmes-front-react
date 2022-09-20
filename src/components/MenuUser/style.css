@@ -1,0 +1,16 @@
+.userMenuButton{
+  color: white !important;
+}
+
+.userMenuButton:hover{
+  color: var(--ternary-color) !important;
+}
+
+.userMenu{
+  background-color: var(--primary-color);
+  color: var(--fonts-color);
+}
+
+.userMenu > li:hover{
+  background-color: var(--ternary-color);
+}

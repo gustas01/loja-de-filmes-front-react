@@ -4,6 +4,7 @@ import Context from "../Context/Context";
 import { AiFillHeart, AiFillStar } from "react-icons/ai";
 import './style.css'
 import constants from '../../utils/contants'
+import imageBackgroundNotFound from '../../utils/wallpaper_not_found.png'
 
 
 const Card = (props) => {
@@ -76,13 +77,13 @@ useEffect(() => {
 
         {props.movie.poster_path != null
         ?
-        <img src={`${baseURLImages}${props.movie.poster_path}`} alt="" />
+        <img src={`${baseURLImages}${props.movie.poster_path}`} alt="Movie's poster" />
         :
-        <img src={`https://www.themoviedb.org/assets/2/apple-touch-icon-cfba7699efe7a742de25c28e08c38525f19381d31087c69e89d6bcb8e3c0ddfa.png`} alt="Movie's poster" />
+        <img src={imageBackgroundNotFound} alt="Movie's poster" />
         }
 
       </div>
-      <p>{`${date.getDate()} de ${months[(date.getMonth())]}, ${date.getFullYear()}`}</p>
+      <p>{`${date.getDate()+1} de ${months[(date.getMonth())]}, ${date.getFullYear()}`}</p>
       <p className="movieTitle" title={props.movie.title}>{props.movie.title}</p>
       <div className="starsGenre">
         <p><AiFillStar/>{props.movie.vote_average}</p>

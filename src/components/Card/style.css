@@ -10,6 +10,7 @@
 .cardContainer{
   border: 1px solid gray;
   color: var(--fonts-color);
+  background-color: var(--primary-color);
 }
 
 .cardContainer:hover{
