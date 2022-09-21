@@ -8,7 +8,8 @@ import './style.css'
 import { useCallback, useContext, useEffect, useState } from "react";
 import Context from "../Context/Context";
 
-import BasicMenu from "../MenuUser";
+import UserMenu from "../UserMenu";
+
 
 const Header = () => {
   const [, setmovieNameSearch] = useContext(Context).movieNameSearch
@@ -84,32 +85,49 @@ const Header = () => {
 
 
     return(
-    <header className="header">
-      <a href="/"><BiCameraMovie className="icons" size={30}/></a>
-      <div className="inputAndSearchButton">
-        <input className="searchInput" placeholder='Pesquisa' onChange={(e) => handleGetMovieName(e)}/>
-        <BiSearchAlt2 className="icons" size={30} color={'#333'} onClick={searchMovies}/>
+    <header className="headerContainer">
+
+      <a href="/"><BiCameraMovie className="icons" size={50}/></a>
+      <div className="inputs">
+
+        <div className="header">
+          <div className="inputAndSearchButton">
+            <input className="searchInput" placeholder='Pesquisa' onChange={(e) => handleGetMovieName(e)}/>
+            <BiSearchAlt2 className="icons" size={30} color={'#333'} onClick={searchMovies}/>
+          </div>
+          {!lightModeStatus && <BsFillSunFill size={25} onClick={darkMode} className="icons"/>}
+          {lightModeStatus && <BsFillMoonFill size={25} onClick={darkMode} className="icons"/>}
+        </div>
+
+        <div className="secondHeader">
+          <div className="filter">
+          <span>Filtro:</span>
+          <select className="filterSelect">
+            <option value=""></option>
+            <option value="">Opção 1</option>
+            <option value="">Opção 2</option>
+            <option value="">Opção 3</option>
+          </select>
+          </div>
+
+          <div className="customerIcons">
+            <div className="userMenuContainer">
+              {token ? <UserMenu/> : <span>ENTRAR</span>}
+            </div>
+            <div onClick={showHideFavorites} title="Favoritos">
+              <NotificationBadge count={favoritesLength} className="notificationBadge"/>
+              <AiFillHeart className="icons" size={30}/>
+            </div>
+            <div onClick={showHideCart} title="Carrinho">
+              <NotificationBadge count={cartLength} className="notificationBadge"/>
+              <MdShoppingCart className="icons" size={30} />
+            </div>
+          </div>
+          {/* <div className="userMenuContainerSmallScreen">
+            <UserMenuSmallScreen/>
+          </div> */}
+        </div>
       </div>
-      {!lightModeStatus && <BsFillSunFill size={25} onClick={darkMode} className="icons"/>}
-      {lightModeStatus && <BsFillMoonFill size={25} onClick={darkMode} className="icons"/>}
-
-      <div className="FlexDistant">
-        <div className="userMenuContainer">
-          {token ? <BasicMenu/> : <span className="user">ENTRAR</span>}
-        </div>
-        <div onClick={showHideFavorites} title="Favoritos">
-          <NotificationBadge count={favoritesLength} className="notificationBadge"/>
-          <AiFillHeart className="icons" size={30}/>
-        </div>
-        <div onClick={showHideCart} title="Carrinho">
-          <NotificationBadge count={cartLength} className="notificationBadge"/>
-          <MdShoppingCart className="icons" size={30} />
-        </div>
-      </div>
-
-      {/* <div className="hamburguer">
-
-      </div> */}
     </header>
     )
 }

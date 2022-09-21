@@ -1,26 +1,28 @@
-.header{
+.headerContainer{
   background-color: var(--secondary-color);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: white;
   padding: 5px 3% 5px 3%;
   transition-duration: 2s;
 }
 
-.header a:visited{
-  color: var(--primary-color);
+.logo img{
+  width: 50px;
+  height: 50px;
 }
 
-.searchInput{
-  outline: none;
-  height: 35px;
+.inputs{
   width: 100%;
-  font-size: 1.2em;
-  border: none;
-  padding-left: 10px;
+  row-gap: 5px;
+  margin-left: 30px;
 }
 
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .inputAndSearchButton{
   display: flex;
@@ -34,21 +36,65 @@
   min-width: fit-content;
 }
 
-.FlexDistant{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex: 0.15;
+.searchInput{
+  outline: none;
+  height: 35px;
+  width: 100%;
+  font-size: 1.2em;
+  border: none;
+  padding-left: 10px;
 }
 
 .icons{
   cursor: pointer;
   transition-duration: 0.5s;
   color: white;
+  min-width: fit-content;
 }
 
 .icons:hover{
   color: var(--ternary-color);
+}
+
+/* ********************************************** */
+.secondHeader{
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter{
+  flex: 0.25;
+  outline: none;
+  height: 50%;
+  align-self: center;
+  width: 20%;
+  display: flex;
+}
+
+.filterSelect{
+  width: 100%;
+  outline: none;
+  min-width: 175px;
+}
+
+.userMenuContainer, .userMenuContainerSmallScreen{
+  transition-duration: 0.5s;
+  z-index: 1;
+}
+
+.userMenuContainer:hover, .userMenuContainerSmallScreen:hover{
+  color: var(--ternary-color);
+}
+
+.header a:visited, .secondHeader a:visited{
+  color: var(--primary-color);
+}
+
+.customerIcons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0.15;
 }
 
 .notificationBadge{
@@ -56,25 +102,32 @@
   font-size: 0.5px;
 }
 
-
-
-
-.userMenuContainer{
-  transition-duration: 0.5s;
-  z-index: 1;
+.userMenuContainerSmallScreen{
+  display: none;
+  color: var(--fonts-color);
+  overflow: hidden;
+  margin-right: 9%;
 }
 
-.userMenuContainer:hover{
-  color: var(--ternary-color);
 
-}
+
 
 @media (max-width: 700px){
-  .FlexDistant{
+  /* .customerIcons{
     display: none;
-  }
+  } */
 
   .inputAndSearchButton{
     flex: 0.7;
+  }
+
+  .userMenuContainerSmallScreen{
+    display: inline-block;
+  }
+}
+
+@media (max-width: 540px){
+  .filter{
+    flex: 1;
   }
 }
