@@ -1,4 +1,4 @@
-.loginPage{
+.newAccountPage{
   width: 100vw;
   height: calc(100vh - 79px);
   display: flex;
@@ -7,7 +7,7 @@
   color: var(--fonts-color);
 }
 
-.loginContainer{
+.newAccountContainer{
   background-color: var(--secondary-color);
   width: 40%;
   display: flex;
@@ -19,71 +19,47 @@
   border-radius: 5px;
 }
 
-.loginForm{
+.newAccountForm{
   display: flex;
   flex-direction: column;
 }
 
-.loginForm > label{
+.newAccountForm > label{
   align-self: flex-start;
   margin: 3px 5%;
 }
 
-.loginForm > input, .loginForm > button, .keepLoggedIn, .register{
+.newAccountForm > input, .newAccountForm > button{
   margin: 3px 5%;
   border-radius: 5px;
   outline: none;
   border: none;
 }
 
-.loginForm > input{
+.newAccountForm > input{
   font-size: 1.1rem;
   height: 1.7rem;
   padding-left: 5px;
 }
 
-.loginForm > button{
+.newAccountForm > button{
   font-size: 1.1rem;
   cursor: pointer;
   background-color: var(--primary-color);
   color: var(--fonts-color);
+  margin-top: 30px;
   padding: 5px 0 5px 0px;
   border: 1px solid var(--fonts-color);
 }
 
-.loginForm > button:hover{
+.newAccountForm > button:hover{
   background-color: var(--button-hover-color);
 
 }
 
-.loginTitle{
+.newAccountTitle{
   align-self: center;
   width: 80%;
   border-bottom: 1px solid var(--fonts-color);
   padding-bottom: 8px;
-}
-
-.keepLoggedIn{
-  align-self: flex-start;
-}
-
-
-.register{
-  margin-top: 30px;
-  align-self: flex-end;
-}
-
-.register a, .register a:visited{
-  background-color: var(--secondary-color);
-  cursor: pointer;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  padding: 3px;
-  color: var(--ternary-color);
-  font-weight: 700;
-}
-
-.register a:hover{
-  color: #3a536b;
 }

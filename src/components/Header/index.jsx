@@ -19,7 +19,7 @@ const Header = () => {
   const [lightModeStatus, setLightModeStatus] = useState(false)
   const [cartLength, setCartLength] = useState(0)
   const [favoritesLength, setFavoritesLength] = useState(0)
-  const [token] = useState('')
+  const [token] = useState('a')
 
   let inputText = ''
 

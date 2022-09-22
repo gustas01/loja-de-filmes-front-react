@@ -19,7 +19,7 @@ html, body{
   --scroll-bar-primary-color: #535252;
   --scroll-bar-secondary-color: #797676;
   --scroll-bar-ternary-color: #979393;
-  --button-hover-color: #222;
+  --button-hover-color: #39424d;
   background: linear-gradient(var(--primary-color), var(--secondary-color), var(--primary-color), var(--secondary-color));
 }
 
@@ -31,7 +31,7 @@ html, body{
   --scroll-bar-primary-color: #535252;
   --scroll-bar-secondary-color: #797676;
   --scroll-bar-ternary-color: #979393;
-  --button-hover-color: #4b458d;
+  --button-hover-color: #9d97dd;
   background-color: white;
 }
 

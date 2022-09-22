@@ -15,3 +15,15 @@
 .userMenu > li:hover{
   background-color: var(--ternary-color);
 }
+
+.userMenu > li{
+  padding: 0;
+}
+
+.userMenu > li > a{
+  /* background-color: red; */
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  padding: 6px 8px;
+}

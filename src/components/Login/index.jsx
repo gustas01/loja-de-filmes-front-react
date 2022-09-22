@@ -10,9 +10,9 @@ export default function Login(props){
         <h1 className='loginTitle'>Login</h1>
         <form action="" className="loginForm">
           <label htmlFor="email">E-mail</label>
-          <input type="email" id='email' name='email'/>
+          <input type="email" id='email' name='email' required/>
           <label htmlFor="password">Senha</label>
-          <input type="password" id='email' name='email'/>
+          <input type="password" id='email' name='email' required/>
           <div className='keepLoggedIn'>
             <input type="checkbox" name="keepLoggedIn" id="keepLoggedIn" />
             <label htmlFor="keepLoggedIn">Manter-me logado</label>

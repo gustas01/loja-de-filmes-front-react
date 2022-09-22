@@ -9,6 +9,7 @@ import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 
 import './style.css'
+import { Link } from 'react-router-dom';
 
 export default function MenuListComposition() {
   const [open, setOpen] = React.useState(false);
@@ -84,8 +85,8 @@ export default function MenuListComposition() {
                     onKeyDown={handleListKeyDown}
                     className="userMenu"
                   >
-                    <MenuItem onClick={handleClose}>Minha conta</MenuItem>
-                    <MenuItem onClick={handleClose}>Sair</MenuItem>
+                    <MenuItem onClick={handleClose}><Link to='/update'>Minha conta</Link> </MenuItem>
+                    <MenuItem onClick={handleClose}> <Link to='/'>Sair</Link> </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
