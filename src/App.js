@@ -17,8 +17,8 @@ function App() {
   return (
     <Context.Provider value={{shoppingCart: [shoppingCart, setShoppingCart], favorites: [favorites, setfavorites], movieNameSearch:[movieNameSearch, setmovieNameSearch], showModal: [showModal, setShowModal]}}>
       <Container>
-        <Header/>
         <BrowserRouter>
+          <Header/>
           <MyRoutes/>
 
         {showModal.show &&

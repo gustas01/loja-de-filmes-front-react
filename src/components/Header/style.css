@@ -30,7 +30,7 @@
   align-items: center;
   flex: 0.5;
   background-color: white;
-  border: 2px solid #97bec3;
+  /* border: 2px solid #97bec3; */
   border-radius: 15px;
   overflow: hidden;
   min-width: fit-content;
@@ -87,7 +87,7 @@
 }
 
 .header a:visited, .secondHeader a:visited{
-  color: var(--primary-color);
+  color: white;;
 }
 
 .customerIcons{
@@ -102,12 +102,14 @@
   font-size: 0.5px;
 }
 
-.userMenuContainerSmallScreen{
-  display: none;
-  color: var(--fonts-color);
-  overflow: hidden;
-  margin-right: 9%;
+.signInButton{
+  text-decoration: none;
 }
+
+.signInButton:hover{
+  color: var(--ternary-color) !important;
+}
+
 
 
 

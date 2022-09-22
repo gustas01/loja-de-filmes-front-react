@@ -9,6 +9,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import Context from "../Context/Context";
 
 import UserMenu from "../UserMenu";
+import { Link } from "react-router-dom";
 
 
 const Header = () => {
@@ -18,7 +19,7 @@ const Header = () => {
   const [lightModeStatus, setLightModeStatus] = useState(false)
   const [cartLength, setCartLength] = useState(0)
   const [favoritesLength, setFavoritesLength] = useState(0)
-  const [token] = useState('a')
+  const [token] = useState('')
 
   let inputText = ''
 
@@ -112,7 +113,7 @@ const Header = () => {
 
           <div className="customerIcons">
             <div className="userMenuContainer">
-              {token ? <UserMenu/> : <span>ENTRAR</span>}
+              {token ? <UserMenu/> : <Link className="signInButton" to={'/login'}>Entrar</Link>}
             </div>
             <div onClick={showHideFavorites} title="Favoritos">
               <NotificationBadge count={favoritesLength} className="notificationBadge"/>
@@ -123,9 +124,6 @@ const Header = () => {
               <MdShoppingCart className="icons" size={30} />
             </div>
           </div>
-          {/* <div className="userMenuContainerSmallScreen">
-            <UserMenuSmallScreen/>
-          </div> */}
         </div>
       </div>
     </header>

@@ -12,8 +12,8 @@ html, body{
 }
 
 :root{
-  --primary-color: #333;
-  --secondary-color: black;
+  --primary-color: #1E2227;
+  --secondary-color: #272E34;
   --ternary-color: rgb(141, 137, 137);
   --fonts-color: white;
   --scroll-bar-primary-color: #535252;
@@ -25,13 +25,13 @@ html, body{
 
 .light-mode{
   --primary-color: white;
-  --secondary-color: #8dd7cf;
+  --secondary-color: #6B63CB;
   --ternary-color: #ddd;
   --fonts-color: black;
   --scroll-bar-primary-color: #535252;
   --scroll-bar-secondary-color: #797676;
   --scroll-bar-ternary-color: #979393;
-  --button-hover-color: #69a7a0;
+  --button-hover-color: #4b458d;
   background-color: white;
 }
 
