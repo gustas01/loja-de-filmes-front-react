@@ -64,7 +64,7 @@ const Header = () => {
   },[updateCartLenght])
 
 
-  const updateFavopritesLenght = useCallback(() => {
+  const updateFavoritesLenght = useCallback(() => {
     let count = 0
     favorites.forEach(el => {
       count += el.quant
@@ -73,8 +73,8 @@ const Header = () => {
   }, [favorites])
 
   useEffect(() => {
-    updateFavopritesLenght()
-  },[updateFavopritesLenght])
+    updateFavoritesLenght()
+  },[updateFavoritesLenght])
 
   useEffect(() => {
     if(localStorage.getItem('light-mode') === 'true'){

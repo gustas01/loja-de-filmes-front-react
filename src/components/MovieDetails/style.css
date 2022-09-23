@@ -1,0 +1,59 @@
+.movieDetailsContainer{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+}
+.movieData{
+  margin-right: 40px;
+  padding-top: 50px;
+}
+.movieImage{
+  width: 50%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  padding-top: 50px;
+}
+
+.movieImage > img{
+  width: 100%;
+  height: 100%;
+}
+
+.favCartButtons, .addToCart, .addToFavorites{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: red;
+  min-width: max-content;
+}
+
+.favCartButtons{
+  width: 70%;
+  gap: 20px;
+}
+
+.addToCart, .addToFavorites{
+  cursor: pointer;
+}
+
+.movieDescription{
+  /* border: 1px solid red; */
+  display: flex;
+}
+
+.movieOverview{
+  margin-right: 20px;
+}
+
+.movieInformation{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.movieInformation span:nth-child(1){
+  font-weight: 700;
+}

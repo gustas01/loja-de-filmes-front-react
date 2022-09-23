@@ -4,6 +4,7 @@ import Checkout from './components/Checkout'
 import Login from './components/Login'
 import CreateNewAccount from './components/CreateNewAccount'
 import UpdateUserData from './components/UpdateUserData'
+import MovieDetails from './components/MovieDetails/'
 
 const MyRoutes = (props) => {
   return(
@@ -13,6 +14,7 @@ const MyRoutes = (props) => {
       <Route exath path='/login' element={<Login/>}/>
       <Route exath path='/register' element={<CreateNewAccount/>}/>
       <Route exath path='/update' element={<UpdateUserData/>}/>
+      <Route exath path='/movieDetails' element={<MovieDetails/>}/>
   </Routes>
   )
 }

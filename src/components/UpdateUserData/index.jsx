@@ -14,7 +14,7 @@ export default function UpdateUserData(props){
           <label htmlFor="email">E-mail</label>
           <input type="email" id='email' name='email' required/>
           <label htmlFor="password">Senha</label>
-          <input type="password" id='email' name='email' required/>
+          <input type="password" id='password' name='email' required/>
           <button>Atualizar</button>
         </form>
       </div>
