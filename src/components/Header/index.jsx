@@ -98,23 +98,9 @@ const Header = () => {
           </div>
           {!lightModeStatus && <BsFillSunFill size={25} onClick={darkMode} className="icons"/>}
           {lightModeStatus && <BsFillMoonFill size={25} onClick={darkMode} className="icons"/>}
-        </div>
 
-        <div className="secondHeader">
-          <div className="filter">
-          <span>Filtro:</span>
-          <select className="filterSelect">
-            <option value=""></option>
-            <option value="">Opção 1</option>
-            <option value="">Opção 2</option>
-            <option value="">Opção 3</option>
-          </select>
-          </div>
 
           <div className="customerIcons">
-            <div className="userMenuContainer">
-              {token ? <UserMenu/> : <Link className="signInButton" to={'/login'}>Entrar</Link>}
-            </div>
             <div onClick={showHideFavorites} title="Favoritos">
               <NotificationBadge count={favoritesLength} className="notificationBadge"/>
               <AiFillHeart className="icons" size={30}/>
@@ -123,7 +109,25 @@ const Header = () => {
               <NotificationBadge count={cartLength} className="notificationBadge"/>
               <MdShoppingCart className="icons" size={30} />
             </div>
+            <div className="userMenuContainer">
+              {token ? <UserMenu/> : <Link className="signInButton" to={'/login'}>Entrar</Link>}
+            </div>
           </div>
+        </div>
+
+        <div className="secondHeader">
+         <div onClick={showHideFavorites} title="Favoritos">
+            <NotificationBadge count={favoritesLength} className="notificationBadge"/>
+            <AiFillHeart className="icons" size={30}/>
+          </div>
+          <div onClick={showHideCart} title="Carrinho">
+            <NotificationBadge count={cartLength} className="notificationBadge"/>
+            <MdShoppingCart className="icons" size={30} />
+          </div>
+          <div className="userMenuContainer">
+            {token ? <UserMenu/> : <Link className="signInButton" to={'/login'}>Entrar</Link>}
+          </div>
+
         </div>
       </div>
     </header>

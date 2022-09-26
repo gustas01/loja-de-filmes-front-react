@@ -7,6 +7,7 @@ import Pagination from "../Pagination";
 import './style.css'
 import Context from "../Context/Context";
 import Loading from "../Loading";
+import Filter from "../Filter";
 
 const Content = (props) => {
   const [movieNameSearch, ] = useContext(Context).movieNameSearch
@@ -74,6 +75,7 @@ const Content = (props) => {
   return(
     <div className="contentContainer">
       <Loading isLoading={isLoading}></Loading>
+      <Filter/>
       <div className="contentMain">
         <main className="main">
           {movies.results?.map((movie, index) => {

@@ -58,31 +58,20 @@
 
 /* ********************************************** */
 .secondHeader{
-  display: flex;
+  display: none;
   justify-content: space-between;
 }
 
-.filter{
-  flex: 0.25;
-  outline: none;
-  height: 50%;
-  align-self: center;
-  width: 20%;
-  display: flex;
+.secondHeader > div{
+  height: fit-content;
 }
 
-.filterSelect{
-  width: 100%;
-  outline: none;
-  min-width: 175px;
-}
-
-.userMenuContainer, .userMenuContainerSmallScreen{
+.userMenuContainer{
   transition-duration: 0.5s;
   z-index: 1;
 }
 
-.userMenuContainer:hover, .userMenuContainerSmallScreen:hover{
+.userMenuContainer:hover{
   color: var(--ternary-color);
 }
 
@@ -115,21 +104,21 @@
 
 
 @media (max-width: 700px){
-  /* .customerIcons{
-    display: none;
-  } */
-
   .inputAndSearchButton{
     flex: 0.7;
   }
-
-  .userMenuContainerSmallScreen{
-    display: inline-block;
-  }
 }
 
-@media (max-width: 540px){
-  .filter{
+@media (max-width: 600px){
+  .secondHeader{
+    display: flex;
+  }
+  .customerIcons{
+    display: none;
+  }
+
+  .inputAndSearchButton{
     flex: 1;
   }
+
 }

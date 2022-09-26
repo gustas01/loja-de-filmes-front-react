@@ -1,0 +1,17 @@
+.filter{
+  flex: 0.25;
+  outline: none;
+  height: 50%;
+  align-self: center;
+  width: fit-content;
+  display: flex;
+  margin: 1% 0;
+  color: var(--fonts-color);
+}
+
+.filterSelect{
+  width: 100%;
+  outline: none;
+  min-width: 175px;
+  margin-left: 5px;
+}
