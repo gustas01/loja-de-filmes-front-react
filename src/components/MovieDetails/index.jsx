@@ -1,7 +1,4 @@
-import { useState } from 'react'
 import { useContext } from 'react'
-import { useMemo } from 'react'
-import { useCallback } from 'react'
 import { AiFillHeart } from 'react-icons/ai'
 import { MdShoppingCart } from 'react-icons/md'
 import { useLocation } from 'react-router-dom'
@@ -15,9 +12,10 @@ import './style.css'
 
 export default function MovieDetails(){
   const {state} = useLocation()
-  const [genres, setGenres] = useState([])
+  const [genres] = useContext(Context).genres
   const [shoppingCart, setShoppingCart] = useContext(Context).shoppingCart
   const [favorites, setFavorites] = useContext(Context).favorites
+
   const baseURLImages = constants.baseURLImagesOriginal
 
 
@@ -56,20 +54,6 @@ export default function MovieDetails(){
     setFavorites([...favorites])
     localStorage.setItem("favorites", JSON.stringify(favorites))
   }
-
-  const getGenres = useCallback(async () => {
-    try{
-      const url = `http://localhost:3001/genres`
-      const genresMovies = await fetch(url)
-      setGenres(await genresMovies.json())
-    }catch(e){
-      console.log(e);
-    }
-  }, [])
-
-  useMemo(() => {
-    getGenres()
-  },[getGenres])
 
 
   return(

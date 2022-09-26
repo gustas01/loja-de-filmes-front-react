@@ -78,7 +78,7 @@ const SideNavCart = () => {
         <p>Total:</p>
         <p>{<CurrencyFormat value={totalPurchase} thousandSeparator='.' decimalSeparator=',' displayType='text' prefix='R$' decimalScale={2} fixedDecimalScale={true}/>}</p>
       </div>
-     <p className='finishPurchaseButton'><Link to="/checkout" disabled={!totalPurchase}>Finalizar compra</Link></p>
+     <p className='finishPurchaseButton'><Link to="/checkout" disabled={!!totalPurchase}>Finalizar compra</Link></p>
     </aside>
   )
 }

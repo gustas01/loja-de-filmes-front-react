@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import Card from "../Card";
 import SideNavCart from "../SideNavCart";
 import SideNavFavorites from "../SideNavFavorites";
@@ -11,8 +11,8 @@ import Filter from "../Filter";
 
 const Content = (props) => {
   const [movieNameSearch, ] = useContext(Context).movieNameSearch
+  const [genres] = useContext(Context).genres
   const [movies, setMovies] = useState({})
-  const [genres, setGenres] = useState({})
   const [page, setPage] = useState(1)
   const [pageFromSearchedMovie, setPageFromSearchedMovie] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
@@ -20,6 +20,7 @@ const Content = (props) => {
 
   const getMovies = useCallback(async () => {
     try{
+      setMovies({})
       setIsLoading(true)
       const url = `http://localhost:3001/${page}/`
       const trendingMovies = await fetch(url)
@@ -30,37 +31,25 @@ const Content = (props) => {
     }
   }, [page])
 
+  useEffect(() => {
+    getMovies()
+  }, [getMovies])
 
-  const getGenres = useCallback(async () => {
-    try{
-      const url = `http://localhost:3001/genres`
-      const genresMovies = await fetch(url)
-      setGenres(await genresMovies.json())
-    }catch(e){
-      console.log(e);
-    }
-  }, [])
 
   async function searchMovies(){
     try{
       if(movieNameSearch){
+        setMovies({})
+        setIsLoading(true)
         const url = `http://localhost:3001/${movieNameSearch}/${pageFromSearchedMovie}`
         const searchedMovies = await fetch(url)
         setMovies(await searchedMovies.json())
+        setIsLoading(false)
       }
     }catch(e){
       console.log(e);
     }
   }
-
-
-  useEffect(() => {
-    getMovies()
-  }, [getMovies])
-
-  useMemo(() => {
-    getGenres()
-  },[getGenres])
 
 
   useEffect(() => {

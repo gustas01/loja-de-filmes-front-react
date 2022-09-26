@@ -5,30 +5,33 @@ import { MdShoppingCart } from "react-icons/md";
 import NotificationBadge from 'react-notification-badge';
 
 import './style.css'
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import Context from "../Context/Context";
 
 import UserMenu from "../UserMenu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Header = () => {
   const [, setmovieNameSearch] = useContext(Context).movieNameSearch
   const [shoppingCart, ] = useContext(Context).shoppingCart
   const [favorites, ] = useContext(Context).favorites
+  const [, setGenres] = useContext(Context).genres
   const [lightModeStatus, setLightModeStatus] = useState(false)
   const [cartLength, setCartLength] = useState(0)
   const [favoritesLength, setFavoritesLength] = useState(0)
+  const [inputText, setInputText] = useState('')
   const [token] = useState('a')
 
-  let inputText = ''
+  const navigate = useNavigate()
 
   function handleGetMovieName(e){
-    inputText = e.target.value
+    setInputText(e.target.value)
   }
 
   function searchMovies(){
     setmovieNameSearch(inputText);
+    navigate('/')
   }
 
   function darkMode(){
@@ -50,6 +53,22 @@ const Header = () => {
     }
     document.getElementById('sideNavFavoritesContainer').classList.toggle('showHideFavorites')
   }
+
+
+  const getGenres = useCallback(async () => {
+    try{
+      const url = `http://localhost:3001/genres`
+      const genresMovies = await fetch(url)
+      setGenres(await genresMovies.json())
+
+    }catch(e){
+      console.log(e);
+    }
+  }, [])
+
+  useMemo(() => {
+    getGenres()
+  },[getGenres])
 
   const updateCartLenght = useCallback(() => {
     let count = 0

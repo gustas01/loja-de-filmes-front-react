@@ -12,10 +12,10 @@ function App() {
   const [favorites, setfavorites] = useState([])
   const [movieNameSearch, setmovieNameSearch] = useState('')
   const [showModal, setShowModal] = useState({show: false, name:''})
-  // const [darkModeStatus, setDarkModeStatus] = useState(true)
+  const [genres, setGenres] = useState([])
 
   return (
-    <Context.Provider value={{shoppingCart: [shoppingCart, setShoppingCart], favorites: [favorites, setfavorites], movieNameSearch:[movieNameSearch, setmovieNameSearch], showModal: [showModal, setShowModal]}}>
+    <Context.Provider value={{shoppingCart: [shoppingCart, setShoppingCart], favorites: [favorites, setfavorites], movieNameSearch:[movieNameSearch, setmovieNameSearch], showModal: [showModal, setShowModal], genres: [genres, setGenres]}}>
       <Container>
         <BrowserRouter>
           <Header/>
