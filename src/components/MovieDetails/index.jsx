@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { AiFillHeart } from 'react-icons/ai'
+import { BsFillPlayBtnFill } from 'react-icons/bs'
 import { MdShoppingCart } from 'react-icons/md'
 import { useLocation } from 'react-router-dom'
 import constants from '../../utils/contants'
@@ -62,12 +63,10 @@ export default function MovieDetails(){
 
   const getVideoURL = useCallback(async () => {
     try{
-      const url = `https://api.themoviedb.org/3/movie/${state.id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+      const url = `http://localhost:3001/trailer/${state.id}`
       const URLTrailer = await fetch(url)
       const movieVideos = await URLTrailer.json()
-      const trailers = movieVideos.results?.filter(el => el.type === "Trailer")
-      const key = movieVideos.results?.filter(el => el.type === "Trailer")[trailers.length - 1].key
-      setLinkTrailer(`https://www.youtube.com/watch?v=${key}`)
+      setLinkTrailer(movieVideos)
     }catch(e){
       console.log(e);
     }
@@ -87,7 +86,7 @@ useEffect(() => {
         :
         <img src={imageBackgroundNotFound} alt="Movie's poster"/>
         }
-        <a href={linkTrailer} target="_blank" rel="noreferrer">Trailer</a>
+        <a href={linkTrailer} target="_blank" rel="noreferrer"><BsFillPlayBtnFill/> Trailer</a>
       </div>
 
       <div className="movieData">

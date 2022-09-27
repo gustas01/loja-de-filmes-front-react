@@ -9,6 +9,7 @@
 .movieData{
   margin-right: 40px;
   padding-top: 50px;
+  color: var(--fonts-color);
 }
 
 .movieImage{
@@ -31,13 +32,18 @@
 
 .movieImage > a{
   padding: 10px;
-  color: var(--fonts-color);
+  color: white;
   background-color: #DD003F;
   font-weight: 700;
   outline: none;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
 }
 
 .movieImage > a:hover{
