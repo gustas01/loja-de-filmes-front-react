@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi";
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 import { AiFillHeart } from "react-icons/ai";

@@ -59,7 +59,8 @@ const Card = (props) => {
   }
 
   function handleShowMovieDetails(){
-    props.movie.genre = props.genres?.filter(el => el.id === props.movie.genre_ids[0])[0]?.name
+    // props.movie.genre = props.genres?.filter(el => el.id === props.movie.genre_ids[0])[0]?.name
+    // console.log(props.movie);
     navigate ('/movieDetails', {
       state: props.movie
     })

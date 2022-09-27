@@ -7,7 +7,6 @@ import Pagination from "../Pagination";
 import './style.css'
 import Context from "../Context/Context";
 import Loading from "../Loading";
-import Filter from "../Filter";
 
 const Content = (props) => {
   const [movieNameSearch, ] = useContext(Context).movieNameSearch
@@ -16,6 +15,7 @@ const Content = (props) => {
   const [page, setPage] = useState(1)
   const [pageFromSearchedMovie, setPageFromSearchedMovie] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
+  // const [genreFilter, setGenreFilter] = useState(0)
 
 
   const getMovies = useCallback(async () => {
@@ -61,10 +61,17 @@ const Content = (props) => {
     searchMovies()
   },[pageFromSearchedMovie])
 
+
+
+  // useEffect(() => {
+  //   const fullMovies = movies.results?.filter(el => el.genre_ids[0] === genreFilter)
+  //   console.log(fullMovies);
+  // }, [genreFilter])
+
   return(
     <div className="contentContainer">
       <Loading isLoading={isLoading}></Loading>
-      <Filter/>
+      {/* <Filter setGenreFilter={setGenreFilter}/> */}
       <div className="contentMain">
         <main className="main">
           {movies.results?.map((movie, index) => {
