@@ -1,11 +1,8 @@
 import { useState } from 'react'
-import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Context from '../Context/Context'
 import './style.css'
 
 export default function Login(props){
-  const [userToken, setUserToken] = useContext(Context).userToken
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
