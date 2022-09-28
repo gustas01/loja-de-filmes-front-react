@@ -7,13 +7,23 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
+import jwt_decode from "jwt-decode";
 
 import './style.css'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import Context from '../Context/Context';
 
 export default function MenuListComposition() {
+  const [, setToken] = useContext(Context).token
   const [open, setOpen] = React.useState(false);
+  const [decoded, setDecoded] = React.useState('');
   const anchorRef = React.useRef(null);
+
+  function handleClearToken(){
+    localStorage.removeItem('token')
+    setToken('')
+  }
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -23,7 +33,6 @@ export default function MenuListComposition() {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
 
@@ -42,9 +51,25 @@ export default function MenuListComposition() {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
     }
-
     prevOpen.current = open;
   }, [open]);
+
+
+
+
+  React.useEffect(() => {
+    if(localStorage.getItem('token')){
+      if(jwt_decode(JSON.parse(localStorage.getItem('token'))?.token).exp <= Math.floor(new Date() / 1000)){
+        setToken('')
+        localStorage.removeItem('token')
+      }
+      else{
+        setDecoded(jwt_decode(JSON.parse(localStorage.getItem('token'))?.token))
+      }
+    }
+  }, []);
+
+
 
   return (
     <Stack direction="row" spacing={2}>
@@ -58,7 +83,7 @@ export default function MenuListComposition() {
           onClick={handleToggle}
           className="userMenuButton"
         >
-          Usuário
+          {decoded.name}
         </Button>
         <Popper
           open={open}
@@ -86,7 +111,7 @@ export default function MenuListComposition() {
                     className="userMenu"
                   >
                     <MenuItem onClick={handleClose}><Link to='/update'>Minha conta</Link> </MenuItem>
-                    <MenuItem onClick={handleClose}> <Link to='/'>Sair</Link> </MenuItem>
+                    <MenuItem onClick={handleClose}> <Link onClick={handleClearToken} to='/'>Sair</Link> </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

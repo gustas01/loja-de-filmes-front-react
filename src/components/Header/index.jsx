@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi";
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 import { AiFillHeart } from "react-icons/ai";
@@ -18,11 +17,11 @@ const Header = () => {
   const [shoppingCart, ] = useContext(Context).shoppingCart
   const [favorites, ] = useContext(Context).favorites
   const [, setGenres] = useContext(Context).genres
+  const [token, setToken] = useContext(Context).token
   const [lightModeStatus, setLightModeStatus] = useState(false)
   const [cartLength, setCartLength] = useState(0)
   const [favoritesLength, setFavoritesLength] = useState(0)
   const [inputText, setInputText] = useState('')
-  const [token] = useState('a')
 
   const navigate = useNavigate()
 
@@ -100,9 +99,15 @@ const Header = () => {
     if(localStorage.getItem('light-mode') === 'true'){
       setLightModeStatus(localStorage.getItem('light-mode'))
       document.body.classList.add('light-mode')
-
     }
   }, [])
+
+
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem('token')))
+      setToken(JSON.parse(localStorage.getItem('token')).token);
+  }, [setToken, token])
+
 
 
     return(
