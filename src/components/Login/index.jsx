@@ -7,7 +7,7 @@ import Context from '../Context/Context';
 import './style.css'
 
 export default function Login(props){
-  const [token, setToken] = useContext(Context).token
+  const [, setToken] = useContext(Context).token
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 

@@ -1,0 +1,47 @@
+.modalDeleteUserContainer{
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.modalDeleteUserContent{
+  background-color: var(--secondary-color);
+  width: 50%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  color: var(--fonts-color);
+  padding: 20px 0 20px 0;
+  border: 2px solid red !important;
+}
+
+.modalContent h1{
+  margin: 0 20px 0 ;
+}
+
+.modalButtons{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.modalButtons > button{
+  padding: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.modalButtons > button:nth-child(1){
+  border: 3px solid red;
+  color: red;
+  font-weight: 700
+}

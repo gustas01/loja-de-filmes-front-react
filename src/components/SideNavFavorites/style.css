@@ -7,7 +7,7 @@
   right: -35%;
   transition-duration: 0.5s;
   border-radius: 10px;
-  height: 100vh;
+  height: 100%;
   color: var(--fonts-color);
 }
 

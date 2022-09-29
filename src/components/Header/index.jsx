@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi";
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 import { AiFillHeart } from "react-icons/ai";
@@ -10,6 +11,7 @@ import Context from "../Context/Context";
 
 import UserMenu from "../UserMenu";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 const Header = () => {
@@ -41,6 +43,10 @@ const Header = () => {
   }
 
   function showHideCart(){
+    if(!token){
+      toast.warn("Você deve entrar antes de acessar o carrinho")
+      return
+    }
     if(document.getElementById('sideNavFavoritesContainer').classList.contains('showHideFavorites')){
       document.getElementById('sideNavFavoritesContainer').classList.remove('showHideFavorites')
     }
@@ -48,6 +54,10 @@ const Header = () => {
   }
 
   function showHideFavorites(){
+    if(!token){
+      toast.warn("Você deve entrar antes de acessar os favoritos")
+      return
+    }
     if(document.getElementById('sideNavCartContainer').classList.contains('showHideCart')){
       document.getElementById('sideNavCartContainer').classList.remove('showHideCart')
     }

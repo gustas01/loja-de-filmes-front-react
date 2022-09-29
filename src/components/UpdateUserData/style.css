@@ -54,7 +54,6 @@
 
 .newAccountForm > button:hover{
   background-color: var(--button-hover-color);
-
 }
 
 .newAccountTitle{
@@ -62,4 +61,9 @@
   width: 80%;
   border-bottom: 1px solid var(--fonts-color);
   padding-bottom: 8px;
+}
+
+.deleteAccountButton{
+  border-color: red !important;
+  color: red !important;
 }
