@@ -60,6 +60,8 @@
 .secondHeader{
   display: none;
   justify-content: space-between;
+  align-items: center;
+  padding-top: 4px;
 }
 
 .secondHeader > div{

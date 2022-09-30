@@ -19,7 +19,7 @@ const Card = (props) => {
   const baseURLImages = constants.baseURLImagesOriginal
 
 
-  function handleAddToCart(){
+  async function handleAddToCart(){
     if(shoppingCart.length && shoppingCart.find(el => el.id === props.movie.id))
       shoppingCart.find(el => el.id === props.movie.id).quant++
 
@@ -33,7 +33,21 @@ const Card = (props) => {
     })
 
     setShoppingCart([...shoppingCart])
-    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+    // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+
+    const token = JSON.parse(localStorage.getItem('token'))?.token
+    const data = await fetch('http://localhost:3001/shoppingCart', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(shoppingCart)
+    })
+    const response = await data.json()
+
+    if(data.status > 200 || data.status < 200)
+      throw (response.errors[0])
   }
 
 
@@ -59,8 +73,6 @@ const Card = (props) => {
   }
 
   function handleShowMovieDetails(){
-    // props.movie.genre = props.genres?.filter(el => el.id === props.movie.genre_ids[0])[0]?.name
-    // console.log(props.movie);
     navigate ('/movieDetails', {
       state: props.movie
     })

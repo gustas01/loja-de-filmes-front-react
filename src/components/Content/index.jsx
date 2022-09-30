@@ -62,12 +62,6 @@ const Content = (props) => {
   },[pageFromSearchedMovie])
 
 
-
-  // useEffect(() => {
-  //   const fullMovies = movies.results?.filter(el => el.genre_ids[0] === genreFilter)
-  //   console.log(fullMovies);
-  // }, [genreFilter])
-
   return(
     <div className="contentContainer">
       <Loading isLoading={isLoading}></Loading>

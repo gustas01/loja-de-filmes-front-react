@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 
 const Header = () => {
   const [, setmovieNameSearch] = useContext(Context).movieNameSearch
-  const [shoppingCart, ] = useContext(Context).shoppingCart
+  const [shoppingCart, setShoppingCart] = useContext(Context).shoppingCart
   const [favorites, ] = useContext(Context).favorites
   const [, setGenres] = useContext(Context).genres
   const [token, setToken] = useContext(Context).token
@@ -82,7 +82,7 @@ const Header = () => {
 
   const updateCartLenght = useCallback(() => {
     let count = 0
-    shoppingCart.forEach(el => {
+    shoppingCart?.forEach(el => {
       count += el.quant
     })
     setCartLength(count)
@@ -91,6 +91,31 @@ const Header = () => {
   useEffect(() => {
     updateCartLenght()
   },[updateCartLenght])
+
+
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem('token'))?.token){
+      async function getCart(){
+        const token = JSON.parse(localStorage.getItem('token'))?.token
+        const data = await fetch('http://localhost:3001/shoppingCart', {
+          method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+      })
+      const response = await data.json()
+      setShoppingCart(response.products);
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
+    }
+
+    getCart()
+  }
+
+  },[setShoppingCart, token])
+
+
 
 
   const updateFavoritesLenght = useCallback(() => {
@@ -136,6 +161,9 @@ const Header = () => {
 
 
           <div className="customerIcons">
+            <div className="userMenuContainer">
+              {token ? <UserMenu/> : <Link className="signInButton" to={'/login'}>Entrar</Link>}
+            </div>
             <div onClick={showHideFavorites} title="Favoritos">
               <NotificationBadge count={favoritesLength} className="notificationBadge"/>
               <AiFillHeart className="icons" size={30}/>
@@ -143,9 +171,6 @@ const Header = () => {
             <div onClick={showHideCart} title="Carrinho">
               <NotificationBadge count={cartLength} className="notificationBadge"/>
               <MdShoppingCart className="icons" size={30} />
-            </div>
-            <div className="userMenuContainer">
-              {token ? <UserMenu/> : <Link className="signInButton" to={'/login'}>Entrar</Link>}
             </div>
           </div>
         </div>

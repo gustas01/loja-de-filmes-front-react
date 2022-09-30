@@ -7,11 +7,24 @@ export default function Modal(props){
   const [, setShowModal] = useContext(Context).showModal
   const [, setShoppingCart] = useContext(Context).shoppingCart
 
-  function continueToHome(){
+  async function continueToHome(){
     setShowModal({show: false, name: ''})
+    const token = JSON.parse(localStorage.getItem('token'))?.token
+    const data = await fetch('http://localhost:3001/shoppingCart', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([])
+    })
+    const response = await data.json()
+
+    if(data.status > 200 || data.status < 200)
+      throw (response.errors[0])
+
     setShoppingCart([])
-    if(localStorage.getItem("shoppingCart"))
-      localStorage.removeItem("shoppingCart")
+
   }
 
   return(

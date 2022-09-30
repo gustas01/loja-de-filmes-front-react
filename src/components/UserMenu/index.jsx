@@ -17,13 +17,21 @@ import Context from '../Context/Context';
 
 export default function MenuListComposition() {
   const [, setToken] = useContext(Context).token
+  const [, setShoppingCart] = useContext(Context).shoppingCart
   const [open, setOpen] = React.useState(false);
   const [decoded, setDecoded] = React.useState('');
   const anchorRef = React.useRef(null);
 
-  function handleClearToken(){
+  function handleLogout(){
     localStorage.removeItem('token')
     setToken('')
+    setShoppingCart([])
+
+    if(document.getElementById('sideNavFavoritesContainer').classList.contains('showHideFavorites'))
+      document.getElementById('sideNavFavoritesContainer').classList.remove('showHideFavorites')
+
+    if(document.getElementById('sideNavCartContainer').classList.contains('showHideCart'))
+      document.getElementById('sideNavCartContainer').classList.remove('showHideCart')
   }
 
   const handleToggle = () => {
@@ -90,6 +98,8 @@ export default function MenuListComposition() {
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}
+          //linha de baixo é a anchor do elemento, onde vai aparecer o menu. Se quiser fazer aparecer pra
+          //esquerda é só colocar bottom-end
           placement="bottom-start"
           transition
           disablePortal
@@ -112,7 +122,7 @@ export default function MenuListComposition() {
                     className="userMenu"
                   >
                     <MenuItem onClick={handleClose}><Link to='/update'>Minha conta</Link> </MenuItem>
-                    <MenuItem onClick={handleClose}> <Link onClick={handleClearToken} to='/'>Sair</Link> </MenuItem>
+                    <MenuItem onClick={handleClose}> <Link onClick={handleLogout} to='/'>Sair</Link> </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

@@ -16,23 +16,48 @@ const SideNavCart = () => {
   const baseURLImages = constants.baseURLImagesW45
 
 
-  function clearCart(){
+  async function clearCart(){
+    const token = JSON.parse(localStorage.getItem('token'))?.token
+    const data = await fetch('http://localhost:3001/shoppingCart', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([])
+    })
+    const response = await data.json()
+
+    if(data.status > 200 || data.status < 200)
+      throw (response.errors[0])
+
     setShoppingCart([])
-    if(localStorage.getItem("shoppingCart"))
-      localStorage.removeItem("shoppingCart")
   }
 
-  function removeItem(index){
+  async function removeItem(index){
     const filteredItens = shoppingCart
     filteredItens.splice(index, 1)
     setShoppingCart([...filteredItens])
-    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+
+    const token = JSON.parse(localStorage.getItem('token'))?.token
+    const data = await fetch('http://localhost:3001/shoppingCart', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(filteredItens)
+    })
+    const response = await data.json()
+
+    if(data.status > 200 || data.status < 200)
+      throw (response.errors[0])
   }
 
 
   const calculateTotalPricePurshace = useCallback(() => {
     let total = 0
-    shoppingCart.forEach(el => {
+    shoppingCart?.forEach(el => {
       total += el.quant * el.price
     })
     setTotalPurchase(total)
@@ -43,11 +68,6 @@ const SideNavCart = () => {
     calculateTotalPricePurshace()
   },[calculateTotalPricePurshace])
 
-
-  useEffect(() => {
-    if(localStorage.getItem("shoppingCart"))
-      setShoppingCart(JSON.parse(localStorage.getItem("shoppingCart")))
-  },[setShoppingCart])
 
   return (
     <aside className='sideNavCartContainer' id='sideNavCartContainer'>

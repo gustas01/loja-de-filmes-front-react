@@ -57,16 +57,10 @@ export default function Checkout() {
   }
 
 
-  useEffect(() => {
-    if(localStorage.getItem("shoppingCart"))
-      setShoppingCart(JSON.parse(localStorage.getItem("shoppingCart")))
-  },[setShoppingCart])
-
 
   useEffect(() => {
     calculateTotalPricePurshaceCheckout()
   },[calculateTotalPricePurshaceCheckout])
-
 
   return(
     <section className='checkoutContainer'>
