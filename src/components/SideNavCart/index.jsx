@@ -17,41 +17,49 @@ const SideNavCart = () => {
 
 
   async function clearCart(){
-    const token = JSON.parse(localStorage.getItem('token'))?.token
-    const data = await fetch('http://localhost:3001/shoppingCart', {
+    try{
+      const token = JSON.parse(localStorage.getItem('token'))?.token
+      const data = await fetch('http://localhost:3001/shoppingCart', {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify([])
-    })
-    const response = await data.json()
+      })
+      const response = await data.json()
 
-    if(data.status > 200 || data.status < 200)
-      throw (response.errors[0])
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
 
-    setShoppingCart([])
+      setShoppingCart([])
+    }catch(e){
+      console.log(e);
+    }
   }
 
   async function removeItem(index){
-    const filteredItens = shoppingCart
-    filteredItens.splice(index, 1)
-    setShoppingCart([...filteredItens])
+    try{
+      const filteredItens = shoppingCart
+      filteredItens.splice(index, 1)
+      setShoppingCart([...filteredItens])
 
-    const token = JSON.parse(localStorage.getItem('token'))?.token
-    const data = await fetch('http://localhost:3001/shoppingCart', {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(filteredItens)
-    })
-    const response = await data.json()
+      const token = JSON.parse(localStorage.getItem('token'))?.token
+      const data = await fetch('http://localhost:3001/shoppingCart', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(filteredItens)
+      })
+      const response = await data.json()
 
-    if(data.status > 200 || data.status < 200)
-      throw (response.errors[0])
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
+    }catch(e){
+      console.log(e);
+    }
   }
 
 

@@ -33,7 +33,6 @@ const Card = (props) => {
     })
 
     setShoppingCart([...shoppingCart])
-    // localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
 
     const token = JSON.parse(localStorage.getItem('token'))?.token
     const data = await fetch('http://localhost:3001/shoppingCart', {
@@ -51,7 +50,7 @@ const Card = (props) => {
   }
 
 
-  function handleAddToFavorites(){
+  async function handleAddToFavorites(){
     if(favorite){
       const index = favorites.indexOf(favorites.find(el => el.id === props.movie.id))
       const aux = favorites
@@ -69,7 +68,20 @@ const Card = (props) => {
 
     setFavorite(!favorite)
     setFavorites([...favorites])
-    localStorage.setItem("favorites", JSON.stringify(favorites))
+
+    const token = JSON.parse(localStorage.getItem('token'))?.token
+    const data = await fetch('http://localhost:3001/favorites', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(favorites)
+    })
+    const response = await data.json()
+
+    if(data.status > 200 || data.status < 200)
+      throw (response.errors[0])
   }
 
   function handleShowMovieDetails(){

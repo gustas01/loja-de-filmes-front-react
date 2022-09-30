@@ -18,6 +18,7 @@ import Context from '../Context/Context';
 export default function MenuListComposition() {
   const [, setToken] = useContext(Context).token
   const [, setShoppingCart] = useContext(Context).shoppingCart
+  const [, setfavorites] = useContext(Context).favorites
   const [open, setOpen] = React.useState(false);
   const [decoded, setDecoded] = React.useState('');
   const anchorRef = React.useRef(null);
@@ -26,6 +27,7 @@ export default function MenuListComposition() {
     localStorage.removeItem('token')
     setToken('')
     setShoppingCart([])
+    setfavorites([])
 
     if(document.getElementById('sideNavFavoritesContainer').classList.contains('showHideFavorites'))
       document.getElementById('sideNavFavoritesContainer').classList.remove('showHideFavorites')

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import CurrencyFormat from 'react-currency-format';
 import { BsFillTrashFill } from 'react-icons/bs';
 import Context from '../Context/Context';
@@ -15,42 +15,93 @@ const SideNavFavorites = () => {
 
   const baseURLImages = constants.baseURLImagesW45
 
-  function handleAddToCart(movie){
-    if(shoppingCart.length && shoppingCart.find(el => el.id === movie.id))
+  async function handleAddToCart(movie){
+    try{
+      if(shoppingCart.length && shoppingCart.find(el => el.id === movie.id))
       shoppingCart.find(el => el.id === movie.id).quant++
 
-    else
-      shoppingCart?.unshift({
-      id: movie.id,
-      imageURL: movie.imageURL,
-      name: movie.name,
-      quant: 1,
-      price: 79.90,
+      else
+        shoppingCart?.unshift({
+        id: movie.id,
+        imageURL: movie.imageURL,
+        name: movie.name,
+        quant: 1,
+        price: 79.90,
+      })
+
+
+      setShoppingCart([...shoppingCart])
+
+      const token = JSON.parse(localStorage.getItem('token'))?.token
+      const data = await fetch('http://localhost:3001/shoppingCart', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(shoppingCart)
+      })
+      const response = await data.json()
+
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
+    }catch(e){
+      console.log(e);
+    }
+  }
+
+  async function clearFavorites(){
+   try{
+    const token = JSON.parse(localStorage.getItem('token'))?.token
+    const data = await fetch('http://localhost:3001/favorites', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([])
     })
+    const response = await data.json()
 
+    if(data.status > 200 || data.status < 200)
+      throw (response.errors[0])
 
-    setShoppingCart([...shoppingCart])
-    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
-  }
-
-  function clearFavorites(){
     setfavorites([])
-    if(localStorage.getItem("favorites"))
-      localStorage.removeItem("favorites")
+   }catch(e){
+      console.log(e);
+   }
   }
 
-  function removeItem(index){
-    const filteredItens = favorites
-    filteredItens.splice(index, 1)
-    setfavorites([...filteredItens])
-    localStorage.setItem("favorites", JSON.stringify(favorites))
+  async function removeItem(index){
+    try{
+      const filteredItens = favorites
+      filteredItens.splice(index, 1)
+      setfavorites([...filteredItens])
+
+      const token = JSON.parse(localStorage.getItem('token'))?.token
+      const data = await fetch('http://localhost:3001/favorites', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(filteredItens)
+      })
+      const response = await data.json()
+
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
+      }catch(e){
+        console.log(e);
+      }
   }
 
 
-  useEffect(() => {
-    if(localStorage.getItem("favorites"))
-    setfavorites(JSON.parse(localStorage.getItem("favorites")))
-  },[setfavorites])
+  // useEffect(() => {
+  //   // if(localStorage.getItem("favorites"))
+  //   // setfavorites(JSON.parse(localStorage.getItem("favorites")))
+
+  // },[setfavorites])
 
   return (
     <aside className='sideNavFavoritesContainer' id='sideNavFavoritesContainer'>

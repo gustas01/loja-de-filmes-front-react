@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 const Header = () => {
   const [, setmovieNameSearch] = useContext(Context).movieNameSearch
   const [shoppingCart, setShoppingCart] = useContext(Context).shoppingCart
-  const [favorites, ] = useContext(Context).favorites
+  const [favorites, setfavorites] = useContext(Context).favorites
   const [, setGenres] = useContext(Context).genres
   const [token, setToken] = useContext(Context).token
   const [lightModeStatus, setLightModeStatus] = useState(false)
@@ -114,6 +114,29 @@ const Header = () => {
   }
 
   },[setShoppingCart, token])
+
+
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem('token'))?.token){
+      async function getfavorites(){
+        const token = JSON.parse(localStorage.getItem('token'))?.token
+        const data = await fetch('http://localhost:3001/favorites', {
+          method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+      })
+      const response = await data.json()
+      setfavorites(response.products);
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
+    }
+
+    getfavorites()
+  }
+
+  },[setfavorites, token])
 
 
 

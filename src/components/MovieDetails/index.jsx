@@ -41,23 +41,40 @@ export default function MovieDetails(){
     localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
   }
 
-  function handleAddToFavorites(){
-    if(favorites.indexOf(favorites.find(el => el.id === state.id)) !== -1 ){
-      const index = favorites.indexOf(favorites.find(el => el.id === state.id))
-      const aux = favorites
-      aux.splice(index, 1)
-      setFavorites(aux)
-    }else{
-      favorites?.unshift({
-      id: state.id,
-      imageURL: state.poster_path,
-      name: state.title,
-      quant: 1,
-      price: 79.90,
-    })
+  async function handleAddToFavorites(){
+    try{
+      if(favorites.indexOf(favorites.find(el => el.id === state.id)) !== -1 ){
+        const index = favorites.indexOf(favorites.find(el => el.id === state.id))
+        const aux = favorites
+        aux.splice(index, 1)
+        setFavorites(aux)
+      }else{
+        favorites?.unshift({
+        id: state.id,
+        imageURL: state.poster_path,
+        name: state.title,
+        quant: 1,
+        price: 79.90,
+      })
     }
-    setFavorites([...favorites])
-    localStorage.setItem("favorites", JSON.stringify(favorites))
+      setFavorites([...favorites])
+
+      const token = JSON.parse(localStorage.getItem('token'))?.token
+      const data = await fetch('http://localhost:3001/favorites', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(favorites)
+      })
+      const response = await data.json()
+
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
+    }catch(e){
+      console.log(e);
+    }
   }
 
 

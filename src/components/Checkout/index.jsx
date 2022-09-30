@@ -24,11 +24,28 @@ export default function Checkout() {
   const baseURLImages = constants.baseURLImagesW45
 
 
-  function removeItem(index){
-    const filteredItens = shoppingCart
-    filteredItens.splice(index, 1)
-    setShoppingCart([...filteredItens])
-    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+  async function removeItem(index){
+    try{
+      const filteredItens = shoppingCart
+      filteredItens.splice(index, 1)
+      setShoppingCart([...filteredItens])
+
+      const token = JSON.parse(localStorage.getItem('token'))?.token
+      const data = await fetch('http://localhost:3001/shoppingCart', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(filteredItens)
+      })
+      const response = await data.json()
+
+      if(data.status > 200 || data.status < 200)
+        throw (response.errors[0])
+    }catch(e){
+      console.log(e);
+    }
   }
 
   function saveName(e){
