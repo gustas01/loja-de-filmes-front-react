@@ -1,5 +1,7 @@
 A aplicação em questão se trata de uma simulação de loja de filmes, onde está presente apenas o desenvolvimento do frontEnd, os dados usados para montar o projetos são da APIdo TMDB (The Movie DataBase) cuja documentação pode ser encontrada aqui https://developers.themoviedb.org/3/getting-started/introduction.
 
+O repositório do backend dessa aplicação se encontra aqui: https://github.com/gustas01/loja-de-filmes-back-NodeJS
+
 ## Overview da aplicação
 ### Cabeçalho e conteúdo
 ![image](https://user-images.githubusercontent.com/50846424/193335436-a5384250-3cc9-4135-a9c2-5260e343ca0f.png)
