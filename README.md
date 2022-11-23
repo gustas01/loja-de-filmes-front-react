@@ -17,7 +17,9 @@ No cabeçalho da página tem alguns ícone interativos, sendo eles:
 * O nome do usuário logado, que é um clicável que exibe as opções da conta e logout.
 * Mais 2 ícones, o primeiro deles que exibirá os favoritos marcados pelo usuário, e o segundo mostrará a lista dos filmes salvos no carrinho de compras. E esses ícones têm uma indicação de quantos itens estão salvos em suas respectivas listas. <br> <br>
 
-Nos cards de cada filme, tem-se botões de adicionar aos favoritos (coração) e adicionar no carrinho de compras (+Adicionar) para checkout.
+Nos cards de cada filme, tem-se botões de adicionar aos favoritos (coração) e adicionar no carrinho de compras (+Adicionar) para checkout. E clicando no card do filme, o usuário será direcionado para uma página contendo mais informações sobre o filme, como sinopse e link para trailer do mesmo no youtube.
+![movieDetails](https://user-images.githubusercontent.com/50846424/203596649-e8b7dd0d-651b-4d2e-b092-dbe2c21af1a1.PNG)
+
 
 ### Paginação <br>
 Na parte inferior da página, tem-se botões de paginação para navegação na aplicação. <br>
@@ -48,7 +50,7 @@ Clicando em "Finalizar compra" é exibido um modal agradecendo pela compra, e ap
 # Instruções para executar a aplicação
 OBS: O NodeJS deve estar instalados no ambiente onde será executado o projeto.
 
-1º - Com um terminal aberto na raiz do projeto, execute o comando  `npm i` para que as depências sejam instaladas.<br>
+1º - Com um terminal aberto na raiz do projeto, execute o comando  `npm i` para que as dependências sejam instaladas.<br>
 2º - Preencha o arquivo .env que está dentro da pasta raiz do proejeto com a sua API_KEY, colocando o valor logo após o sinal de igualdade, sem aspas.<br> 
 
 ```bash
