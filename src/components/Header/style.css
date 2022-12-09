@@ -5,6 +5,9 @@
   color: white;
   padding: 5px 3% 5px 3%;
   transition-duration: 2s;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 .logo img{
@@ -15,7 +18,7 @@
 .inputs{
   width: 100%;
   row-gap: 5px;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .header{
@@ -121,6 +124,7 @@
 
   .inputAndSearchButton{
     flex: 1;
+    margin-right: 10px;
   }
 
 }

@@ -97,12 +97,6 @@ const SideNavFavorites = () => {
   }
 
 
-  // useEffect(() => {
-  //   // if(localStorage.getItem("favorites"))
-  //   // setfavorites(JSON.parse(localStorage.getItem("favorites")))
-
-  // },[setfavorites])
-
   return (
     <aside className='sideNavFavoritesContainer' id='sideNavFavoritesContainer'>
       <div className='sideNavFavoritesTitles'>
