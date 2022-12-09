@@ -17,6 +17,10 @@ No cabeçalho da página tem alguns ícone interativos, sendo eles:
 * O nome do usuário logado, que é um clicável que exibe as opções da conta e logout.
 * Mais 2 ícones, o primeiro deles que exibirá os favoritos marcados pelo usuário, e o segundo mostrará a lista dos filmes salvos no carrinho de compras. E esses ícones têm uma indicação de quantos itens estão salvos em suas respectivas listas. <br> <br>
 
+E claro, o layout está responsivo <br>
+![loja filmes react responsivo](https://user-images.githubusercontent.com/50846424/206606189-d032191c-4fff-430e-9c5a-01fe09900084.png)
+
+
 Nos cards de cada filme, tem-se botões de adicionar aos favoritos (coração) e adicionar no carrinho de compras (+Adicionar) para checkout. E clicando no card do filme, o usuário será direcionado para uma página contendo mais informações sobre o filme, como sinopse e link para trailer do mesmo no youtube.
 ![movieDetails](https://user-images.githubusercontent.com/50846424/203596649-e8b7dd0d-651b-4d2e-b092-dbe2c21af1a1.PNG)
 
