@@ -41,7 +41,7 @@ const Content = (props) => {
       if(movieNameSearch){
         setMovies({})
         setIsLoading(true)
-        const url = `http://localhost:3001/${movieNameSearch}/${pageFromSearchedMovie}`
+        const url = `http://localhost:3001/search/${movieNameSearch}/${pageFromSearchedMovie}`
         const searchedMovies = await fetch(url)
         setMovies(await searchedMovies.json())
         setIsLoading(false)
