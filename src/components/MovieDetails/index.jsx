@@ -31,8 +31,8 @@ export default function MovieDetails(){
     else
       shoppingCart?.unshift({
       id: state.id,
-      imageURL: state.poster_path,
-      name: state.title,
+      poster_path: state.poster_path,
+      title: state.title,
       quant: 1,
       price: 79.90,
     })
@@ -51,8 +51,8 @@ export default function MovieDetails(){
       }else{
         favorites?.unshift({
         id: state.id,
-        imageURL: state.poster_path,
-        name: state.title,
+        poster_path: state.poster_path,
+        title: state.title,
         quant: 1,
         price: 79.90,
       })

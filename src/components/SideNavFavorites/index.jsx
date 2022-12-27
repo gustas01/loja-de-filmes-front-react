@@ -23,8 +23,8 @@ const SideNavFavorites = () => {
       else
         shoppingCart?.unshift({
         id: movie.id,
-        imageURL: movie.imageURL,
-        name: movie.name,
+        poster_path: movie.imageURL,
+        title: movie.name,
         quant: 1,
         price: 79.90,
       })

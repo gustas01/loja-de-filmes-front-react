@@ -26,8 +26,8 @@ const Card = (props) => {
     else
       shoppingCart?.unshift({
       id: props.movie.id,
-      imageURL: props.movie.poster_path,
-      name: props.movie.title,
+      poster_path: props.movie.poster_path,
+      title: props.movie.title,
       quant: 1,
       price: 79.90,
     })
@@ -59,8 +59,8 @@ const Card = (props) => {
     }else{
         favorites?.unshift({
         id: props.movie.id,
-        imageURL: props.movie.poster_path,
-        name: props.movie.title,
+        poster_path: props.movie.poster_path,
+        title: props.movie.title,
         quant: 1,
         price: 79.90,
       })

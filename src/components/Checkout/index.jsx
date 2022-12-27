@@ -112,12 +112,12 @@ export default function Checkout() {
             {shoppingCart?.map((el, index) => {
             return (
               <li col={5} className='cartItemCheckout' key={el.id} >
-                {el.imageURL != null?
-                <img src={`${baseURLImages}${el.imageURL}`} alt="" />
+                {el.poster_path != null?
+                <img src={`${baseURLImages}${el.poster_path}`} alt="" />
                 :
                 <img src={`https://www.themoviedb.org/assets/2/apple-touch-icon-cfba7699efe7a742de25c28e08c38525f19381d31087c69e89d6bcb8e3c0ddfa.png`} alt="" />
                 }
-                <p className='cartMovieNameCheckout' title={el.name}>{el.name}</p>
+                <p className='cartMovieNameCheckout' title={el.title}>{el.title}</p>
                 <p title='Quantidade'>{el.quant}</p>
                 <p title='Preço'>{<CurrencyFormat value={el.price} thousandSeparator='.' decimalSeparator=',' displayType='text' prefix='R$' decimalScale={2} fixedDecimalScale={true}/>}</p>
 

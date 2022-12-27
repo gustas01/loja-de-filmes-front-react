@@ -105,7 +105,7 @@ const Header = () => {
         },
       })
       const response = await data.json()
-      setShoppingCart(response.products);
+      setShoppingCart(response);
       if(data.status > 200 || data.status < 200)
         throw (response.errors[0])
     }
@@ -128,7 +128,7 @@ const Header = () => {
         },
       })
       const response = await data.json()
-      setfavorites(response.products);
+      setfavorites(response);
       if(data.status > 200 || data.status < 200)
         throw (response.errors[0])
     }
