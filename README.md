@@ -52,14 +52,8 @@ Clicando em "Finalizar compra" é exibido um modal agradecendo pela compra, e ap
 
 
 # Instruções para executar a aplicação
-OBS: O NodeJS deve estar instalados no ambiente onde será executado o projeto.
+OBS: O NodeJS deve estar instalados no ambiente onde será executado o projeto. E também o backend referenciado no começo desde readMe deve estar em execução.
 
 1º - Com um terminal aberto na raiz do projeto, execute o comando  `npm i` para que as dependências sejam instaladas.<br>
-2º - Preencha o arquivo .env que está dentro da pasta raiz do proejeto com a sua API_KEY, colocando o valor logo após o sinal de igualdade, sem aspas.<br> 
 
-```bash
-# essa key é criada no site https://www.themoviedb.org/
-REACT_APP_API_KEY=
-```
-
-3º - Ainda com o terminal aberto na raiz, execute o comando  `npm start` para executar a aplicação. Uma aba no seu navegador será aberta no endereço `http://localhost:3000/`
+2º - Ainda com o terminal aberto na raiz, execute o comando  `npm start` para executar a aplicação. Uma aba no seu navegador será aberta no endereço `http://localhost:3000/`
